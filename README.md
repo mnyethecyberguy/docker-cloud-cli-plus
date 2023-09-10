@@ -1,4 +1,4 @@
-# Cloud CLI Tools
+# Cloud CLI Tools Plus
 
 My Docker container for Cloud CLI Tools.
 
@@ -12,4 +12,4 @@ This Dockerfile builds on a Ubuntu image and installs a number of tools for inte
 
 The image also creates and runs under a non-root user.
 
-Latest build on my Docker Hub: [mnyethecyberguy/cloud-cli](https://hub.docker.com/r/mnyethecyberguy/cloud-cli)
+Latest build on my Docker Hub: [mnyethecyberguy/cloud-cli](https://hub.docker.com/r/mnyethecyberguy/cloud-cli-plus)
