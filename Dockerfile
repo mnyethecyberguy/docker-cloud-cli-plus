@@ -12,16 +12,14 @@ SHELL ["/bin/bash", "-c"]
  
 # AWS CLI
 RUN sudo apt update && \
-    sudo apt install -y curl unzip sudo && \
+    sudo apt install -y curl unzip sudo ca-certificates apt-transport-https lsb-release gnupg wget software-properties-common jq && \
     curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
     unzip awscliv2.zip && \
     sudo ./aws/install && \
     rm awscliv2.zip
  
 # Azure CLI
-RUN sudo apt update && \
-    sudo apt install -y ca-certificates curl apt-transport-https lsb-release gnupg && \
-    curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null && \
+RUN curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/microsoft.gpg > /dev/null && \
     AZ_REPO=$(lsb_release -cs) && \
     echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | sudo tee /etc/apt/sources.list.d/azure-cli.list && \
     sudo apt update && \
@@ -34,14 +32,8 @@ RUN echo deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cl
     sudo apt install google-cloud-sdk -y
 
 # Powershell
-RUN sudo apt update && \
-    sudo apt install -y wget apt-transport-https software-properties-common && \
-    wget -q "https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb" && \
+RUN wget -q "https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/packages-microsoft-prod.deb" && \
     sudo dpkg -i packages-microsoft-prod.deb && \
     rm packages-microsoft-prod.deb && \
     sudo apt update && \
     sudo apt install -y powershell
-
-# jq
-RUN sudo apt update && \
-    sudo apt install -y jq
