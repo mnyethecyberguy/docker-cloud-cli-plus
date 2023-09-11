@@ -2,18 +2,16 @@ FROM ubuntu
 
 # Add a Non-Root user
 RUN useradd -s /bin/bash -m ubuntu && \
+    echo "ubuntu ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
     apt update && \
-    apt install -y sudo && \
-    echo "ubuntu ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+    apt install -y sudo curl unzip zip ca-certificates apt-transport-https lsb-release gnupg wget software-properties-common jq
 
 USER ubuntu
 WORKDIR /home/ubuntu
 SHELL ["/bin/bash", "-c"]
  
 # AWS CLI
-RUN sudo apt update && \
-    sudo apt install -y curl unzip sudo ca-certificates apt-transport-https lsb-release gnupg wget software-properties-common jq && \
-    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
     unzip awscliv2.zip && \
     sudo ./aws/install && \
     rm awscliv2.zip
