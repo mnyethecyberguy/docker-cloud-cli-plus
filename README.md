@@ -2,7 +2,7 @@
 
 My Docker container for Cloud CLI Tools.
 
-This Dockerfile builds on a Ubuntu image and installs a number of tools for interacting with AWS, Azure, and GCP:
+This Dockerfile builds on a Ubuntu image and installs CLI tools for interacting with AWS, Azure, and GCP, along with additional utilities:
 
 - `awscliv2` - AWS CLIv2
 - `azure-cli` - Microsoft Azure CLI
@@ -12,4 +12,4 @@ This Dockerfile builds on a Ubuntu image and installs a number of tools for inte
 
 The image also creates and runs under a non-root user.
 
-Latest build on my Docker Hub: [mnyethecyberguy/cloud-cli](https://hub.docker.com/r/mnyethecyberguy/cloud-cli-plus)
+Latest build on my Docker Hub: [mnyethecyberguy/cloud-cli-plus](https://hub.docker.com/r/mnyethecyberguy/cloud-cli-plus)
