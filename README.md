@@ -12,4 +12,10 @@ This Dockerfile builds on a Ubuntu image and installs CLI tools for interacting 
 
 The image also creates and runs under a non-root user.
 
-Latest build on my Docker Hub: [mnyethecyberguy/cloud-cli-plus](https://hub.docker.com/r/mnyethecyberguy/cloud-cli-plus)
+## Using the Image
+
+You can build the image yourself using this Dockerfile or pull from [Docker Hub](https://hub.docker.com/r/mnyethecyberguy/cloud-cli-plus)
+
+```
+docker pull mnyethecyberguy/cloud-cli-plus
+```
