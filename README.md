@@ -7,6 +7,7 @@ This Dockerfile builds on a Ubuntu image and installs CLI tools for interacting 
 - `awscliv2` - AWS CLIv2
 - `azure-cli` - Microsoft Azure CLI
 - `gcloud` - Google Cloud SDK
+- `terraform` - Terraform (1.5.7 at this time)
 - `powershell` - Powershell (7.3.6 at this time)
 - `jq` - Used for parsing and working with JSON
 
