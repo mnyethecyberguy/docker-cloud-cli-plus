@@ -2,9 +2,9 @@ FROM ubuntu
 
 # Add a Non-Root user
 RUN useradd -s /bin/bash -m ubuntu && \
-    echo "ubuntu ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers && \
     apt update && \
-    apt install -y sudo curl unzip zip ca-certificates apt-transport-https lsb-release gnupg wget software-properties-common jq
+    apt install -y sudo curl unzip zip ca-certificates apt-transport-https lsb-release gnupg wget software-properties-common jq && \
+    echo "ubuntu ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 USER ubuntu
 WORKDIR /home/ubuntu
@@ -40,4 +40,4 @@ RUN wget -q "https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/pac
 RUN wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg > /dev/null && \
     echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list && \
     sudo apt update && \
-    sudo apt install terraform
+    sudo apt install -y terraform
